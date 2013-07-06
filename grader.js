@@ -65,7 +65,9 @@ var checkUrl = function(url, checksfile) {
 			var present = $(checks[ii]).length > 0;
 			out[checks[ii]] = present;
 		}
-		console.log(JSON.stringify(out, null, 4));
+		var outJSON = JSON.stringify(out, null, 4);
+		fs.writeFileSync('grader.json', outJSON);
+		console.log(outJSON);
 	});
 }
 
